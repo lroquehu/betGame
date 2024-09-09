@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pato.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>VideoJuego - Apuestas deportivas
+    </title>
+    <link rel="stylesheet" href="betGame.css">
+  </head>
+<body>
+  <div class="tittle">
+    <h1>
+      <span class="material-symbols-outlined">grade</span>
+      <span class="material-symbols-outlined">grade</span>
+      <span class="material-symbols-outlined">grade</span>
+      <span class="material-symbols-outlined">grade</span>
+      <span class="material-symbols-outlined">grade</span>
+      APUESTAS DEPORTIVAS ROQUEBET
+      <span class="material-symbols-outlined">grade</span>
+      <span class="material-symbols-outlined">grade</span>
+      <span class="material-symbols-outlined">grade</span>
+      <span class="material-symbols-outlined">grade</span>
+      <span class="material-symbols-outlined">grade</span>
+    </h1>
+  </div>
+  <div class="icons">
+    <img src="monop.jpg" alt="" class="imgLateral">
+    <div class="contCentral">
+      <div class="colorAleatorio">
+        <header>
+          <h4>COLOR</h4>
+        </header>
+        <main>
+          <span id="contador" hidden></span>
+          <input type="button" id="colorInput" hidden disabled>
+        </main>
+        <footer style="background: #666; height: 56px;">
+          <h4 id="resultado"></h4>
+        </footer>
+      </div>
+      <div class="btnCentrales">
+        <div class="red">
+          <input type="button" id="local" value="LOCAL" disabled onclick="seleccionarEquipo('LOCAL')">
+        </div>
+        <div class="blue">
+          <input type="button" id="visitante" value="VISITANTE" disabled onclick="seleccionarEquipo('VISITANTE')">
+        </div>
+      </div>
+      <div class="contenedor" id="contenedor">
+        <!--aqui se añadiran botones-->
+      </div>
+    </div>
+    <img src="monopoly.jpg" alt="" class="imgLateral">
+  </div>
+  <label for="saldoInput">Saldo Disponible: </label>
+    <input type="text" id="saldoInput" value="0.00" disabled><br>
+    <input type="number" id="recargaInput" placeholder="Ingrese una cantidad">    
+  <button onclick="recargar()">Recargar</button>
+  <div class="btnZone" style="margin-top: 10px;">
+    <button onclick="recargarMonto(2.5)" id="btn2.5" disabled>2.5</button>
+    <button onclick="recargarMonto(5)" id="btn5" disabled>5</button>
+    <button onclick="recargarMonto(10)" id="btn10" disabled>10</button>
+    <button onclick="recargarMonto(25)" id="btn25" disabled>25</button>
+    <button onclick="recargarMonto(125)" id="btn125" disabled>125</button>
+    <button onclick="recargarMonto(500)" id="btn500" disabled>500</button>
+  </div>
+  <script src="betGame.js"></script>
+</body>
+</html>
