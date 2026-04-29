@@ -2,27 +2,19 @@ server {
     listen 80;
     listen [::]:80;
     root /home/site/wwwroot;
-    index  index.php index.html index.htm;
-    server_name  localhost;
+    index index.php index.html index.htm;
+    server_name localhost;
 
     location / {
-        # Esta línea es la clave: intenta cargar el archivo real, 
-        # si no existe, lo manda al index.php con los parámetros
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-    # Configuración para procesar archivos PHP
     location ~ [^/]\.php(/|$) {
         fastcgi_split_path_info ^(.+?\.php)(/.*)$;
-        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_pass 127.0.0.1:9000; # Dirección estándar de PHP en Azure Linux
         fastcgi_index index.php;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $fastcgi_path_info;
-    }
-
-    # Bloquear acceso a archivos sensibles
-    location ~ /\. {
-        deny all;
     }
 }
