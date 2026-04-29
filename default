@@ -2,16 +2,17 @@ server {
     listen 80;
     listen [::]:80;
     root /home/site/wwwroot;
-    index index.php index.html index.htm;
+    index index.php index.html;
     server_name localhost;
 
     location / {
+        # Esta es la línea vital para evitar el 404
         try_files $uri $uri/ /index.php?$query_string;
     }
 
     location ~ [^/]\.php(/|$) {
         fastcgi_split_path_info ^(.+?\.php)(/.*)$;
-        fastcgi_pass 127.0.0.1:9000; # Dirección estándar de PHP en Azure Linux
+        fastcgi_pass 127.0.0.1:9000;
         fastcgi_index index.php;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
