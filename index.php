@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config/database.php';
+require_once __DIR__ . '/config/database.php';
 
 // Autocargador simplificado para evitar fallos de rutas
 spl_autoload_register(function ($class) {
@@ -26,7 +26,7 @@ switch ($uri) {
         break;
 
     case '/login':
-        require_once 'middleware/AuthMiddleware.php';
+        require_once __DIR__ . '/middleware/AuthMiddleware.php';
         AuthMiddleware::redirectIfLoggedIn();
 
         $auth = new AuthController();
@@ -38,7 +38,7 @@ switch ($uri) {
         break;
 
     case '/register':
-        require_once 'middleware/AuthMiddleware.php';
+        require_once __DIR__ . '/middleware/AuthMiddleware.php';
         AuthMiddleware::redirectIfLoggedIn();
 
         $auth = new AuthController();
@@ -50,7 +50,7 @@ switch ($uri) {
         break;
 
     case '/dashboard':
-        require_once 'middleware/AuthMiddleware.php';
+        require_once __DIR__ . '/middleware/AuthMiddleware.php';
         AuthMiddleware::checkAuth();
 
         $database = new Database();
